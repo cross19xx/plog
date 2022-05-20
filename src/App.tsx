@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -13,9 +14,11 @@ const Plog: React.FC = () => {
   return (
     <ReduxProvider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Navigation>
-          <StatusBar style="auto" backgroundColor={colors.backgroundSecondary} />
-        </Navigation>
+        <SafeAreaProvider>
+          <Navigation>
+            <StatusBar style="auto" backgroundColor={colors.backgroundSecondary} />
+          </Navigation>
+        </SafeAreaProvider>
       </PersistGate>
     </ReduxProvider>
   );
