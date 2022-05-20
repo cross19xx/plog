@@ -43,7 +43,11 @@ const BottomBar: React.FC<Props> = ({ onPlusPressed, navigation, state }) => {
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.backgroundSecondary }]}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: colors.backgroundSecondary, borderTopColor: colors.border },
+      ]}>
       {stateArray.map((_, index) => {
         if (index === 2) {
           return (
@@ -91,10 +95,14 @@ const styles = StyleSheet.create({
   container: {
     minHeight: 56,
     flexDirection: 'row',
+    borderTopWidth: 1,
   },
   tabColumn: {
     flex: 1,
     paddingVertical: 4,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   tabColumnInner: {
     flex: 1,
@@ -103,9 +111,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   plusIcon: {
-    height: 56,
-    width: 56,
-    borderRadius: 56,
+    height: 48,
+    width: 48,
+    borderRadius: 48,
     backgroundColor: MiscColors.green,
     flexDirection: 'column',
     alignItems: 'center',
