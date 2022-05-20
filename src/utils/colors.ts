@@ -25,6 +25,8 @@ export const LightColors = {
 export const MiscColors = {
   primary: '#3277B3',
 
+  transparent: '#00000000',
+
   black: '#000000',
   green: '#4CAF50',
   white: '#FFFFFF',
