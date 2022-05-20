@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "assetBundlePatterns": ["**/*"],
+    "icon": "./src/assets/icon.png",
+    "ios": {
+      "supportsTablet": true
+    },
+    "name": "Plog",
+    "orientation": "portrait",
+    "slug": "Plog",
+    "splash": {
+      "backgroundColor": "#FFFFFF",
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "userInterfaceStyle": "dark",
+    "version": "1.0.0"
+  }
+}
