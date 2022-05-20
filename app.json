@@ -22,7 +22,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "version": "1.0.0"
   }
 }
