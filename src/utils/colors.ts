@@ -10,12 +10,14 @@ export const LightColors = {
   backgroundPrimary: 'rgb(248, 248, 250)',
   backgroundSecondary: 'rgb(255, 255, 255)',
 
-  textPrimary: 'rgb(90, 96, 104)',
-  textSecondary: 'rgb(83, 89, 96)',
+  textPrimary: '#212121',
+  textSecondary: '#888888',
 };
 
 export const MiscColors = {
   primary: '#3277B3',
 
+  black: '#000000',
+  green: '#4CAF50',
   white: '#FFFFFF',
 };
