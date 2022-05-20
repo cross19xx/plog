@@ -1,6 +1,7 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import AddIcon from '_/components/svg/add-icon';
 import HomeIcon from '_/components/svg/home-icon';
@@ -27,6 +28,7 @@ const ICON_COMPONENTS: IconComponent = {
 
 const BottomBar: React.FC<Props> = ({ onPlusPressed, navigation, state }) => {
   const { colors } = useTheme();
+  const { bottom: INSET_BOTTOM } = useSafeAreaInsets();
   const stateArray = new Array(5).fill(null);
 
   const handlePress = (routeKey: string, routeName: string, isFocused: boolean) => {
@@ -46,7 +48,11 @@ const BottomBar: React.FC<Props> = ({ onPlusPressed, navigation, state }) => {
     <View
       style={[
         styles.container,
-        { backgroundColor: colors.backgroundSecondary, borderTopColor: colors.border },
+        {
+          backgroundColor: colors.backgroundSecondary,
+          borderTopColor: colors.border,
+          paddingBottom: INSET_BOTTOM,
+        },
       ]}>
       {stateArray.map((_, index) => {
         if (index === 2) {
