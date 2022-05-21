@@ -28,6 +28,7 @@ export const MiscColors = {
   transparent: '#00000000',
 
   black: '#000000',
-  green: '#4CAF50',
-  white: '#FFFFFF',
+  green500: '#4CAF50',
+  red500: '#F44336',
+  white500: '#FFFFFF',
 };

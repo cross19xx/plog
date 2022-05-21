@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Categories from './Categories';
 import NoToyMessage from './NoToyMessage';
+import ToyRow from './ToyRow';
 
 import useTheme from '_/hooks/useTheme';
 import { useTypedSelector } from '_/hooks/useRedux';
@@ -23,9 +24,10 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (activeTab === 'all') {
       setToysByCategory(toys);
+      return;
     }
 
-    setToysByCategory(toys.filter((toy) => toy.specie === 'activeTab'));
+    setToysByCategory(toys.filter((toy) => toy.specie === activeTab));
   }, [activeTab, toys]);
 
   return (
@@ -42,6 +44,15 @@ const Home: React.FC = () => {
           <Categories activeCategory={activeTab} onActiveSelect={handleActiveSelected} />
 
           {toysByCategory.length === 0 && <NoToyMessage activeKey={activeTab} />}
+
+          {toysByCategory.length > 0 && (
+            <>
+              <Text style={[styles.subTitle, { color: colors.textPrimary }]}>My Plush Toys</Text>
+              {toysByCategory.map((toy) => (
+                <ToyRow key={toy.id} toy={toy} />
+              ))}
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -64,6 +75,11 @@ const styles = StyleSheet.create({
   },
   subMessage: {
     marginBottom: 32,
+  },
+
+  subTitle: {
+    fontSize: 18,
+    marginBottom: 16,
   },
 });
 

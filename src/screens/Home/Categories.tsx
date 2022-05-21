@@ -2,22 +2,16 @@ import React from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import useTheme from '_/hooks/useTheme';
+import { SPECIES_CATEGORIES } from '_/utils/constants';
 
 type Props = {
   activeCategory: string;
   onActiveSelect: (key: string) => void;
 };
 
-const CATEGORIES = [
-  { name: 'All Toys', id: 'all', icon: require('_/assets/fox.png') },
-  { name: 'Bears', id: 'bears', icon: require('_/assets/bear.png') },
-  { name: 'Cats', id: 'cats', icon: require('_/assets/cat.png') },
-  { name: 'Dogs', id: 'dogs', icon: require('_/assets/dog.png') },
-  { name: 'Elephants', id: 'elephants', icon: require('_/assets/elephant.png') },
-  { name: 'Fishes', id: 'fishes', icon: require('_/assets/fish.png') },
-  { name: 'Mice', id: 'mice', icon: require('_/assets/mouse.png') },
-  { name: 'Pigs', id: 'pigs', icon: require('_/assets/pig.png') },
-];
+const CATEGORIES = [{ name: 'All Toys', id: 'all', icon: require('_/assets/fox.png') }].concat(
+  SPECIES_CATEGORIES,
+);
 
 const Categories: React.FC<Props> = ({ activeCategory, onActiveSelect }) => {
   const { colors } = useTheme();

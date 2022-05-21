@@ -63,7 +63,7 @@ const BottomBar: React.FC<Props> = ({ onPlusPressed, navigation, state }) => {
                 accessibilityRole="button"
                 onPress={onPlusPressed}>
                 <View style={[styles.plusIcon, { shadowColor: colors.textPrimary }]}>
-                  <AddIcon size={28} color={MiscColors.white} />
+                  <AddIcon size={28} color={MiscColors.white500} />
                 </View>
               </TouchableOpacity>
             </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     height: 48,
     width: 48,
     borderRadius: 48,
-    backgroundColor: MiscColors.green,
+    backgroundColor: MiscColors.green500,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',

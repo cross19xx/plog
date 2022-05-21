@@ -1,5 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+import { SheetManager } from 'react-native-actions-sheet';
 
 import BottomBar from '_/components/BottomBar';
 import { RootParamList, RootScreen } from '_/navigation/index.d';
@@ -21,6 +22,7 @@ const ROOT_SCREENS: RootScreen[] = [
 const RootNavigation: React.FC = () => {
   const handlePlusPressed = () => {
     console.debug('Add a new plush toy', new Date());
+    SheetManager.show('add-plush-toy-sheet');
   };
 
   return (
