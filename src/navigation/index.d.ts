@@ -6,9 +6,8 @@ import { PlushToy } from '_/types';
 
 export type RootParamList = {
   Dashboard: undefined;
-  Details: {
-    toy: PlushToy;
-  };
+  Details: { toy: PlushToy };
+  Edit: { toy: PlushToy };
 };
 
 export type TabParamList = {

@@ -48,7 +48,7 @@ const Details: React.FC = () => {
 
   const { colors } = useTheme();
 
-  const handleDelete = () => {
+  const handleDeletePressed = () => {
     Alert.alert(
       'Delete plush toy',
       `Are you sure you want to delete ${toy.name}? You won't be able to undo this action.`,
@@ -58,6 +58,10 @@ const Details: React.FC = () => {
       ],
       { cancelable: true },
     );
+  };
+
+  const handleEditPressed = () => {
+    navigation.push('Edit', { toy });
   };
 
   const proceedToDelete = () => {
@@ -103,9 +107,9 @@ const Details: React.FC = () => {
           <Text style={styles.cardValue}>{toy.description}</Text>
 
           <View style={styles.cardButtonContainer}>
-            <Button onPress={() => {}} text="Edit" style={styles.cardButton} />
+            <Button onPress={handleEditPressed} text="Edit" style={styles.cardButton} />
             <Button
-              onPress={handleDelete}
+              onPress={handleDeletePressed}
               text="Delete"
               style={styles.cardButton}
               innerStyle={styles.cardButtonDelete}

@@ -5,12 +5,14 @@ import DashboardNavigation from './DashboardNavigation';
 
 import { RootParamList, RootScreen } from '_/navigation/index.d';
 import Details from '_/screens/Details';
+import Edit from '_/screens/Edit';
 
 const { Navigator, Screen } = createNativeStackNavigator<RootParamList>();
 
 const ROOT_SCREENS: RootScreen[] = [
   { name: 'Dashboard', component: DashboardNavigation, title: 'Dashboard' },
   { name: 'Details', component: Details, title: 'Plush toy details' },
+  { name: 'Edit', component: Edit, title: 'Edit plush toy' },
 ];
 
 const RootNavigation: React.FC = () => (
