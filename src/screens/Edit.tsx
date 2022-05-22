@@ -1,7 +1,7 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useFormik } from 'formik';
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as Yup from 'yup';
 import Button from '_/components/Button';
@@ -66,9 +66,13 @@ const Edit: React.FC = () => {
   return (
     <ScrollView
       bounces={false}
-      contentContainerStyle={[styles.container, { backgroundColor: colors.backgroundPrimary }]}>
+      contentContainerStyle={{ backgroundColor: colors.backgroundPrimary }}>
       <SafeAreaView style={styles.safeAreaView}>
         <Header title="Details" navigation={navigation} />
+
+        <Text style={[styles.title, { color: colors.textSecondary }]}>
+          Edit details of your plush toy
+        </Text>
 
         <View
           style={[
@@ -116,7 +120,6 @@ const Edit: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
   safeAreaView: {
     flexDirection: 'column',
     alignItems: 'center',
@@ -125,6 +128,13 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
 
+  title: {
+    fontSize: 18,
+    fontWeight: '500',
+    width: '100%',
+    lineHeight: 24,
+    marginBottom: 16,
+  },
   form: {
     width: '100%',
     padding: 16,

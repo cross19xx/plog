@@ -76,7 +76,7 @@ const Details: React.FC = () => {
   return (
     <ScrollView
       bounces={false}
-      contentContainerStyle={[styles.container, { backgroundColor: colors.backgroundPrimary }]}>
+      contentContainerStyle={{ backgroundColor: colors.backgroundPrimary }}>
       <SafeAreaView style={styles.safeAreaView}>
         <Header title="Details" navigation={navigation} />
 
@@ -143,7 +143,6 @@ const Details: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   safeAreaView: {
     flexDirection: 'column',
     alignItems: 'center',
