@@ -1,6 +1,7 @@
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import RightCaretIcon from '_/components/svg/right-caret-icon';
 
 import useTheme from '_/hooks/useTheme';
 import { PlushToy } from '_/types';
@@ -31,13 +32,15 @@ const ToyRow: React.FC<Props> = ({ toy }) => {
           Added {formatDistanceToNow(toy.dateCreated || Date.now())} ago
         </Text>
       </View>
+
+      <RightCaretIcon size={16} color={colors.textSecondary} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 16,
+    marginBottom: 8,
     borderRadius: 8,
     borderWidth: 1,
     flexDirection: 'row',
