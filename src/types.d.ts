@@ -1,5 +1,5 @@
 export type History = {
-  activity: 'plushToyAdded' | 'plushToyRemoved';
+  activity: 'plushToyAdded' | 'plushToyModified' | 'plushToyRemoved';
   dateCreated: number;
   plushToyId: string;
 };
