@@ -15,8 +15,8 @@ const { Navigator, Screen } = createBottomTabNavigator<TabParamList>();
 const TAB_SCREENS: TabScreen[] = [
   { name: 'Home', title: 'Home', component: Home },
   { name: 'History', title: 'History', component: History },
-  { name: 'Account', title: 'Account', component: Account },
   { name: 'Info', title: 'Info', component: Info },
+  { name: 'Account', title: 'Account', component: Account },
 ];
 
 const DashboardNavigation: React.FC = () => {

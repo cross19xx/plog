@@ -8,7 +8,8 @@ const Account: React.FC = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: colors.backgroundPrimary }]}>
-      <Text style={[styles.title, { color: colors.textPrimary }]}>Account info appears here</Text>
+      <Text style={[styles.title, { color: colors.textPrimary }]}>Johnny&apos;s plush toys.</Text>
+      <Text style={[styles.title, { color: colors.textPrimary }]}>More to come on this page</Text>
     </View>
   );
 };
