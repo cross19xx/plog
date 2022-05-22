@@ -131,7 +131,7 @@ const Details: React.FC = () => {
                 </Text>
                 <Text style={[styles.historyDate, { color: colors.textSecondary }]}>
                   {formatDate(history.dateCreated, 'EEE, LLLL dd, hh:mm:ss a')} (
-                  {formatDistanceToNow(toy.dateCreated || Date.now())} ago)
+                  {formatDistanceToNow(history.dateCreated || Date.now())} ago)
                 </Text>
               </View>
             </View>
@@ -143,7 +143,7 @@ const Details: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {},
   safeAreaView: {
     flexDirection: 'column',
     alignItems: 'center',
