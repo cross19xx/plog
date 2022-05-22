@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import RightCaretIcon from '_/components/svg/right-caret-icon';
 
 import useTheme from '_/hooks/useTheme';
+import { RootNavigationProp } from '_/navigation';
 import { PlushToy } from '_/types';
 import { SPECIES_CATEGORIES } from '_/utils/constants';
 
@@ -12,29 +14,36 @@ type Props = {
 };
 
 const ToyRow: React.FC<Props> = ({ toy }) => {
+  const navigation = useNavigation<RootNavigationProp<'Dashboard'>>();
   const { colors } = useTheme();
+
+  const handleRowPressed = () => {
+    navigation.push('Details', { toy });
+  };
 
   const specie =
     SPECIES_CATEGORIES.find((specie) => specie.id == toy.specie) || SPECIES_CATEGORIES[0];
 
   return (
-    <View
-      style={[
-        styles.container,
-        { backgroundColor: colors.backgroundSecondary, borderColor: colors.border },
-      ]}>
-      <Image source={specie.icon} style={styles.image} />
+    <TouchableOpacity activeOpacity={0.75} onPress={handleRowPressed}>
+      <View
+        style={[
+          styles.container,
+          { backgroundColor: colors.backgroundSecondary, borderColor: colors.border },
+        ]}>
+        <Image source={specie.icon} style={styles.image} />
 
-      <View style={styles.textContainer}>
-        <Text style={[styles.title, { color: colors.textPrimary }]}>{toy.name}</Text>
-        <Text style={[styles.specieName, { color: colors.textSecondary }]}>{specie.name}</Text>
-        <Text style={[styles.date, { color: colors.textSecondary }]}>
-          Added {formatDistanceToNow(toy.dateCreated || Date.now())} ago
-        </Text>
+        <View style={styles.textContainer}>
+          <Text style={[styles.title, { color: colors.textPrimary }]}>{toy.name}</Text>
+          <Text style={[styles.specieName, { color: colors.textSecondary }]}>{specie.name}</Text>
+          <Text style={[styles.date, { color: colors.textSecondary }]}>
+            Added {formatDistanceToNow(toy.dateCreated || Date.now())} ago
+          </Text>
+        </View>
+
+        <RightCaretIcon size={16} color={colors.textSecondary} />
       </View>
-
-      <RightCaretIcon size={16} color={colors.textSecondary} />
-    </View>
+    </TouchableOpacity>
   );
 };
 
