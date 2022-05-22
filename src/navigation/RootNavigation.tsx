@@ -1,44 +1,29 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { SheetManager } from 'react-native-actions-sheet';
 
-import BottomBar from '_/components/BottomBar';
+import DashboardNavigation from './DashboardNavigation';
+
 import { RootParamList, RootScreen } from '_/navigation/index.d';
+import Details from '_/screens/Details';
 
-import Account from '_/screens/Account';
-import History from '_/screens/History';
-import Home from '_/screens/Home';
-import Info from '_/screens/Info';
-
-const { Navigator, Screen } = createBottomTabNavigator<RootParamList>();
+const { Navigator, Screen } = createNativeStackNavigator<RootParamList>();
 
 const ROOT_SCREENS: RootScreen[] = [
-  { name: 'Home', title: 'Home', component: Home },
-  { name: 'History', title: 'History', component: History },
-  { name: 'Account', title: 'Account', component: Account },
-  { name: 'Info', title: 'Info', component: Info },
+  { name: 'Dashboard', component: DashboardNavigation, title: 'Dashboard' },
+  { name: 'Details', component: Details, title: 'Plush toy details' },
 ];
 
-const RootNavigation: React.FC = () => {
-  const handlePlusPressed = () => {
-    console.debug('Add a new plush toy', new Date());
-    SheetManager.show('add-plush-toy-sheet');
-  };
-
-  return (
-    <Navigator
-      initialRouteName="Home"
-      tabBar={(props) => <BottomBar {...props} onPlusPressed={handlePlusPressed} />}>
-      {ROOT_SCREENS.map(({ component, name, title }) => (
-        <Screen
-          key={name}
-          name={name}
-          component={component}
-          options={{ title, headerShown: false }}
-        />
-      ))}
-    </Navigator>
-  );
-};
+const RootNavigation: React.FC = () => (
+  <Navigator initialRouteName="Dashboard">
+    {ROOT_SCREENS.map(({ name, component, title }) => (
+      <Screen
+        key={name}
+        name={name}
+        component={component}
+        options={{ title, headerShown: false }}
+      />
+    ))}
+  </Navigator>
+);
 
 export default RootNavigation;
