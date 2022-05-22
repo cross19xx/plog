@@ -10,14 +10,14 @@ import PersonIcon from '_/components/svg/person-icon';
 import TimeIcon from '_/components/svg/time-icon';
 
 import useTheme from '_/hooks/useTheme';
-import { RootParamName } from '_/navigation';
+import { TabParamName } from '_/navigation';
 import { MiscColors } from '_/utils/colors';
 
 type Props = BottomTabBarProps & {
   onPlusPressed: () => any;
 };
 
-type IconComponent = Record<RootParamName, React.ComponentType<{ size?: number; color?: string }>>;
+type IconComponent = Record<TabParamName, React.ComponentType<{ size?: number; color?: string }>>;
 
 const ICON_COMPONENTS: IconComponent = {
   Account: PersonIcon,
@@ -74,7 +74,7 @@ const BottomBar: React.FC<Props> = ({ onPlusPressed, navigation, state }) => {
         const route = state.routes[currentIndex];
         const isFocused = state.index === currentIndex;
 
-        const Icon = ICON_COMPONENTS[state.routes[currentIndex].name as RootParamName] || HomeIcon;
+        const Icon = ICON_COMPONENTS[state.routes[currentIndex].name as TabParamName] || HomeIcon;
 
         const color = isFocused ? colors.textPrimary : colors.textSecondary;
         const fontWeight = isFocused ? 'bold' : 'normal';
